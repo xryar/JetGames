@@ -27,4 +27,8 @@ class JetGamesViewModel(private val repository: GameRepository): ViewModel() {
             .groupBy { it.name[0] }
     }
 
+    fun getGameById(gameId: Long): Game {
+        return repository.getGameById(gameId)
+    }
+
 }

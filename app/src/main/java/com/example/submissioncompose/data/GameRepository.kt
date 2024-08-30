@@ -15,4 +15,10 @@ class GameRepository {
         }
     }
 
+    fun getGameById(gameId: Long): Game {
+        return GameData.games.first {
+            it.id == gameId
+        }
+    }
+
 }
