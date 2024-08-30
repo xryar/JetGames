@@ -39,9 +39,12 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 import coil.compose.AsyncImage
 import com.example.submissioncompose.R
 import com.example.submissioncompose.data.GameRepository
+import com.example.submissioncompose.navigation.Screen
 import com.example.submissioncompose.ui.theme.SubmissionComposeTheme
 import com.example.submissioncompose.viewmodel.JetGamesViewModel
 import com.example.submissioncompose.viewmodel.factory.JetGamesViewModelFactory
@@ -49,10 +52,14 @@ import com.example.submissioncompose.viewmodel.factory.JetGamesViewModelFactory
 @Composable
 fun HomeScreen(
     modifier: Modifier = Modifier,
+    navController: NavController,
     navigateToDetail: (Long) -> Unit
 ) {
     SubmissionComposeTheme {
-        HomeContent(modifier = modifier) { gameId ->
+        HomeContent(
+            modifier = modifier,
+            navController = navController,
+        ) { gameId ->
             navigateToDetail(gameId)
         }
     }
@@ -62,6 +69,7 @@ fun HomeScreen(
 @Composable
 fun HomeContent(
     modifier: Modifier,
+    navController: NavController,
     viewModel: JetGamesViewModel = viewModel(
         factory = JetGamesViewModelFactory(GameRepository())
     ),
@@ -76,7 +84,8 @@ fun HomeContent(
                 SearchBar(
                     query = query,
                     onQueryChange = viewModel::search,
-                    modifier = Modifier.background(MaterialTheme.colorScheme.primaryContainer   )
+                    navController = navController,
+                    modifier = Modifier.background(MaterialTheme.colorScheme.primaryContainer)
                 )
             }
             groupedGames.forEach{ (initial, games) ->
@@ -147,6 +156,7 @@ fun GamesListItem(
 fun SearchBar(
     query: String,
     onQueryChange: (String) -> Unit,
+    navController: NavController,
     modifier: Modifier = Modifier
 ) {
     Row(
@@ -183,7 +193,11 @@ fun SearchBar(
             imageVector = Icons.Default.AccountCircle,
             contentDescription = null,
             tint = Color.White,
-            modifier = Modifier.size(45.dp)
+            modifier = Modifier
+                .size(45.dp)
+                .clickable {
+                    navController.navigate(Screen.Profile.route)
+                }
         )
     }
 }
@@ -214,8 +228,11 @@ fun CharacterHeader(
 )
 @Composable
 private fun HomeScreenPreview() {
+    val navController = rememberNavController()
     SubmissionComposeTheme {
-        HomeScreen() {
+        HomeScreen(
+            navController = navController
+        ) {
 
         }
     }

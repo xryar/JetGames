@@ -57,6 +57,7 @@ import com.example.submissioncompose.model.GameData
 import com.example.submissioncompose.navigation.Screen
 import com.example.submissioncompose.screen.detail.DetailScreen
 import com.example.submissioncompose.screen.home.HomeScreen
+import com.example.submissioncompose.screen.profile.ProfileScreen
 import com.example.submissioncompose.ui.theme.SubmissionComposeTheme
 import com.example.submissioncompose.viewmodel.JetGamesViewModel
 import com.example.submissioncompose.viewmodel.factory.JetGamesViewModelFactory
@@ -73,9 +74,15 @@ fun JetGamesApp(
     ) {
         composable(Screen.Home.route){
             HomeScreen(
+                navController = navController,
                 navigateToDetail = { gameId ->
                     navController.navigate(Screen.DetailGame.createRoute(gameId))
                 }
+            )
+        }
+        composable(Screen.Profile.route){
+            ProfileScreen(
+                navController = navController
             )
         }
         composable(
@@ -84,11 +91,11 @@ fun JetGamesApp(
         ) {
             val id = it.arguments?.getLong("gameId") ?: -1L
             DetailScreen(
-                gameId = id
+                gameId = id,
+                navController = navController
             )
         }
     }
-    
 }
 
 
