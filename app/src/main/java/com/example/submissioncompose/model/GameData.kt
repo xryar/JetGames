@@ -182,6 +182,7 @@ object GameData {
         ),
         Game(
             16,
+            "Resident Evil Village",
             "Resident Evil Village, atau sering disebut sebagai Resident Evil 8, adalah sebuah permainan video survival horror yang dirilis pada Mei 2021. Dikembangkan dan diterbitkan oleh Capcom, permainan ini tersedia untuk berbagai platform, termasuk PlayStation 4, PlayStation 5, Xbox One, Xbox Series X/S, dan PC.\n" +
                     "\n" +
                     "Dalam Resident Evil Village, pemain mengendalikan Ethan Winters, karakter utama dari *Resident Evil 7: Biohazard*. Cerita permainan ini melanjutkan kisah Ethan setelah peristiwa di *Resident Evil 7*, saat dia mencari putrinya yang diculik dan dibawa ke sebuah desa yang misterius dan penuh dengan makhluk mengerikan. Desa ini dikuasai oleh berbagai entitas supernatural dan karakter antagonis yang unik, termasuk Lady Dimitrescu yang terkenal.\n" +
@@ -189,7 +190,6 @@ object GameData {
                     "Permainan ini menawarkan atmosfer horror yang mencekam dengan kombinasi elemen survival dan aksi. Pemain harus menjelajahi lingkungan yang gelap dan penuh bahaya, mengumpulkan sumber daya, serta mengatasi berbagai musuh dan teka-teki. Resident Evil Village memperkenalkan berbagai elemen baru, termasuk sistem pertarungan yang lebih intens dan mekanika crafting yang memungkinkan pemain untuk meningkatkan senjata dan perlengkapan.\n" +
                     "\n" +
                     "Resident Evil Village mendapatkan pujian untuk desain visualnya yang menakjubkan, atmosfer yang menegangkan, dan gameplay yang bervariasi. Permainan ini dianggap sebagai salah satu judul terbaik dalam seri *Resident Evil* dan diterima dengan baik oleh kritikus serta penggemar genre survival horror.",
-            "Lorem Ipsum",
             "https://raw.githubusercontent.com/xryar/assets/main/REVillage.png"
         ),
         Game(
