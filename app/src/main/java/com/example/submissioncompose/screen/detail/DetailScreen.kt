@@ -101,7 +101,9 @@ fun DetailScreen(
                 text = game.description,
                 fontSize = 16.sp,
                 textAlign = TextAlign.Justify,
-                modifier = Modifier.fillMaxWidth()
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(8.dp)
             )
         }
     }
